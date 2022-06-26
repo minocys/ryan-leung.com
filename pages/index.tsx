@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { Container } from "../components";
+import { Container, LinkedIn, Mail, GitHub } from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -12,10 +12,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="flex flex-column">
         <Container>
           <h1>Ryan Leung</h1>
           <h2>Technical Lead at Crypto.com</h2>
+        </Container>
+        <Container>
+          <LinkedIn />
+          <GitHub />
+          <Mail />
         </Container>
       </main>
 
