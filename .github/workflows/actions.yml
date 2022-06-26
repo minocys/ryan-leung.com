@@ -40,24 +40,7 @@ jobs:
       - name: Install Deps
         run: yarn
 
-      # install and cache playwright binaries
-      # https://github.com/microsoft/playwright/issues/7249#issuecomment-1154603556
-      #
-      - name: Get installed Playwright version
-        id: playwright-version
-        run: echo "::set-output name=version::$(yarn why --json @playwright/test | grep -h 'workspace:.' | jq --raw-output '.children[].locator' | sed -e 's/@playwright\/test@.*://')"
-
-      - name: Attempt to Retrieve Playwright Cache
-        uses: actions/cache@v3
-        id: playwright-cache
-        with:
-          path: "~/.cache/ms-playwright"
-          key: "${{ runner.os }}-playwright-cache-${{ steps.playwright-version.outputs.version }}"
-          restore-keys: |
-            ${{ runner.os }}-playwright-cache-
-
-      - name: Install Playwright's Dependencies
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+      - name: Install Playwright
         run: npx playwright install --with-deps
 
       - name: Run Tests
