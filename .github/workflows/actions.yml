@@ -38,7 +38,7 @@ jobs:
         id: playwright-version
         run: echo "::set-output name=version::$(yarn why --json @playwright/test | grep -h 'workspace:.' | jq --raw-output '.children[].locator' | sed -e 's/@playwright\/test@.*://')"
 
-      - name: Attemp to Retrive Playwright Cache
+      - name: Attempt to Retrieve Playwright Cache
         uses: actions/cache@v3
         id: playwright-cache
         with:
