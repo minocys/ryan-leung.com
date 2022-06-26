@@ -54,7 +54,7 @@ jobs:
       - name: Cache Node Modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules',
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Deps
