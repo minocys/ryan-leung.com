@@ -35,10 +35,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Deps
-        run: yarn install
+        run: yarn
 
       # install and cache playwright binaries
       # https://github.com/microsoft/playwright/issues/7249#issuecomment-1154603556
@@ -52,9 +52,9 @@ jobs:
         id: playwright-cache
         with:
           path: "~/.cache/ms-playwright"
-          key: "${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}"
+          key: "${{ runner.os }}-playwright-cache-${{ steps.playwright-version.outputs.version }}"
           restore-keys: |
-            ${{ runner.os }}-playwright-
+            ${{ runner.os }}-playwright-cache-
 
       - name: Install Playwright's Dependencies
         if: steps.playwright-cache.outputs.cache-hit != 'true'
