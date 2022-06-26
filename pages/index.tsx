@@ -1,11 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import {Container} from '../components'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { Container } from "../components";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Ryan Leung</title>
         <meta name="description" content="ryan-leung.com" />
@@ -14,21 +14,18 @@ const Home: NextPage = () => {
 
       <main>
         <Container>
-          Ryan Leung
+          <h1>Ryan Leung</h1>
+          <h2>Technical Lead at Crypto.com</h2>
         </Container>
       </main>
 
       <footer>
-        <a
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ryan-leung.com
+        <a href="/" target="_blank" rel="noopener noreferrer">
+          Home
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

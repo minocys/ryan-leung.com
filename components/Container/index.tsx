@@ -1,12 +1,23 @@
-export type ContainerProps = {
+import classNames from "classnames";
+
+export type ContainerProps = React.HTMLProps<HTMLSpanElement> & {
   children: React.ReactNode;
+  className?: string;
+  [x: string]: any;
 };
 
-const Container = ({ children }: ContainerProps): JSX.Element => {
+const Container = ({
+  children,
+  className,
+  ...props
+}: ContainerProps): JSX.Element => {
   return (
-    <div className="container mx-auto px-4" {...props}>
+    <span
+      className={classNames("container mx-auto px-4", className || false)}
+      {...props}
+    >
       {children}
-    </div>
+    </span>
   );
 };
 
