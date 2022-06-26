@@ -51,7 +51,16 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules',
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Deps
+        run: yarn install
+
       - name: Run Tests
-        run: npm run test
+        run: yarn test
         env:
           PLAYWRIGHT_TEST_BASE_URL: ${{ needs.test_setup.outputs.preview_url }}
