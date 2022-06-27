@@ -15,7 +15,7 @@ test("it should display my name", async ({ page }) => {
 
   const heading = page.locator("h1");
 
-  await expect(heading).toHaveText("Hello! My name is Ryan :)");
+  await expect(heading).toHaveText(/Hello!.*My name is Ryan :\)/);
 });
 
 test("it should have a link to linkedin", async ({ page }) => {
