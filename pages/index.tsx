@@ -14,8 +14,7 @@ const Home: NextPage = () => {
 
       <main className="flex flex-column">
         <Container>
-          <h1>Ryan Leung</h1>
-          <h2>Technical Lead at Crypto.com</h2>
+          <h1>Hello! My name is Ryan :)</h1>
         </Container>
         <Container>
           <LinkedIn />

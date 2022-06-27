@@ -10,16 +10,12 @@ test("it should have a home page", async ({ page }) => {
   await expect(meta).toHaveAttribute("content", "ryan-leung.com");
 });
 
-test("it should display my current position", async ({ page }) => {
+test("it should display my name", async ({ page }) => {
   await page.goto("http://localhost:3000");
 
   const heading = page.locator("h1");
 
-  await expect(heading).toHaveText("Ryan Leung");
-
-  const subheading = page.locator("h2");
-
-  await expect(subheading).toHaveText("Technical Lead at Crypto.com");
+  await expect(heading).toHaveText("Hello! My name is Ryan :)");
 });
 
 test("it should have a link to linkedin", async ({ page }) => {
