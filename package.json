@@ -3,21 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tinacms server:start -c \"next dev\"",
-    "build": "tinacms server:start -c \"next build\"",
-    "start": "tinacms server:start -c \"next start\"",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
-    "test": "playwright test"
+    "test": "playwright test",
+    "ts_gen": "cf-content-types-generator contentful_exports/2022-07-13.json --out types"
   },
   "dependencies": {
-    "@tinacms/cli": "^0.60.26",
+    "@contentful/rich-text-plain-text-renderer": "^15.12.1",
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@contentful/rich-text-types": "^15.12.1",
     "classnames": "^2.3.1",
+    "contentful": "^9.1.32",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-social-icons": "^5.13.0",
-    "styled-components": "^5.3.5",
-    "tinacms": "^0.68.12"
   },
   "devDependencies": {
     "@playwright/test": "^1.22.2",
@@ -25,6 +27,7 @@
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",
+    "cf-content-types-generator": "^2.2.2",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "^8.5.0",
