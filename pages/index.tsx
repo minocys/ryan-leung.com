@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { LinkedIn, Mail, GitHub } from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -19,18 +18,6 @@ const Home: NextPage = () => {
             </span>
           </h1>
         </div>
-
-        <footer className="flex flex-row justify-center fixed inset-x-0 bottom-0 mb-10">
-          <div className="mx-2">
-            <LinkedIn />
-          </div>
-          <div className="mx-2">
-            <GitHub />
-          </div>
-          <div className="mx-2">
-            <Mail />
-          </div>
-        </footer>
       </main>
     </div>
   );

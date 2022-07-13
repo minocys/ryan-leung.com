@@ -50,9 +50,11 @@ const Note: NextPage = ({
       <main>
         <div className="grow">
           <div className="py-10">
-            <h1 className="text-4xl font-bold font-sans">{title}</h1>
+            <h1 className="text-3xl font-bold font-sans">{title}</h1>
           </div>
-          <div className="font-serif">{documentToReactComponents(body)}</div>
+          <div className="text-lg font-serif">
+            {documentToReactComponents(body)}
+          </div>
         </div>
       </main>
     </div>

@@ -31,7 +31,7 @@ const Notes: NextPage = ({
               className="border-b-2 mb-4 p-4 cursor-pointer"
             >
               <Link href={`/notes/${note.fields.slug}`}>
-                <h2>{note.fields.title}</h2>
+                <h2 className="text-2xl font-serif">{note.fields.title}</h2>
               </Link>
             </div>
           ))}
