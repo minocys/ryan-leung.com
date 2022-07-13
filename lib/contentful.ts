@@ -1,11 +1,13 @@
 import { createClient } from "contentful";
 import { TypeNote, TypeNoteFields } from "types";
 
-const client = createClient({
-  environment: process.env.NEXT_PUBLIC_CF_ENVIRONMENT,
-  space: process.env.NEXT_PUBLIC_CF_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN,
-});
+const config = {
+  environment: process.env.NEXT_PUBLIC_CF_ENVIRONMENT || "",
+  space: process.env.NEXT_PUBLIC_CF_SPACE_ID || "",
+  accessToken: process.env.NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN || "",
+};
+
+const client = createClient(config);
 
 type GetNoteParams = {
   slug: string;
