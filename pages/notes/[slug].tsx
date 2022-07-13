@@ -41,15 +41,20 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
 const Note: NextPage = ({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(data);
   const {
     fields: { title, body },
   } = data;
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <main>{documentToReactComponents(body)}</main>
+    <div className="max-w-screen-lg flex justify-center align-center m-auto">
+      <main>
+        <div className="grow">
+          <div className="py-10">
+            <h1 className="text-4xl font-bold font-sans">{title}</h1>
+          </div>
+          <div className="font-serif">{documentToReactComponents(body)}</div>
+        </div>
+      </main>
     </div>
   );
 };
