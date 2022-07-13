@@ -20,7 +20,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const Notes: NextPage = ({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(data);
   return (
     <div>
       <main>
