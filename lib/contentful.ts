@@ -15,6 +15,7 @@ export async function getNote(slug: Slug): Promise<TypeNote | null> {
   const { items } = await client.getEntries<TypeNoteFields>({
     limit: 1,
     include: 10,
+    content_type: "note",
     "fields.slug": slug,
   });
   const note = items[0];
