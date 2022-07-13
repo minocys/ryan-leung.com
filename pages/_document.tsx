@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import { LinkedIn, Mail, GitHub, Notes } from "components";
 
 export default function Document() {
   return (
@@ -19,8 +20,22 @@ export default function Document() {
       </Head>
 
       <body>
+        <div className="w-full flex flex-row justify-end max-h-13">
+          <Notes />
+        </div>
         <Main />
         <NextScript />
+        <footer className="flex flex-row justify-center fixed inset-x-0 bottom-0 mb-10">
+          <div className="mx-2">
+            <LinkedIn />
+          </div>
+          <div className="mx-2">
+            <GitHub />
+          </div>
+          <div className="mx-2">
+            <Mail />
+          </div>
+        </footer>
       </body>
     </Html>
   );
