@@ -9,15 +9,13 @@ const config = {
 
 const client = createClient(config);
 
-type GetNoteParams = {
-  slug: string;
-};
+type Slug = string;
 
-export async function getNote(params: GetNoteParams): TypeNote | null {
+export async function getNote(slug: Slug): Promise<TypeNote | null> {
   const { items } = await client.getEntries<TypeNoteFields>({
     limit: 1,
     include: 10,
-    "fields.slug": params.slug,
+    "fields.slug": slug,
   });
   const note = items[0];
 
@@ -29,7 +27,7 @@ type GetNotesParams = {
   limit: number;
 };
 
-export async function getNotes(params: GetNotesParams): TypeNote[] {
+export async function getNotes(params: GetNotesParams): Promise<TypeNote[]> {
   const { items: notes } = await client.getEntries<TypeNoteFields>({
     order: "sys.createdAt",
     content_type: "note",
@@ -43,7 +41,9 @@ type GetNoteSlugsParams = {
   limit: number;
 };
 
-export async function getNoteSlugs(params: GetNoteSlugsParams): TypeNote[] {
+export async function getNoteSlugs(
+  params: GetNoteSlugsParams
+): Promise<TypeNote[]> {
   const { items: notes } = await client.getEntries<TypeNoteFields>({
     order: "sys.createdAt",
     content_type: "note",

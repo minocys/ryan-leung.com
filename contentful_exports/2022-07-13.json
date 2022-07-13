@@ -12,7 +12,7 @@
         "id": "note",
         "type": "ContentType",
         "createdAt": "2022-07-11T23:54:29.847Z",
-        "updatedAt": "2022-07-11T23:59:38.052Z",
+        "updatedAt": "2022-07-13T11:41:45.103Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2022-07-11T23:59:38.052Z",
+        "publishedVersion": 7,
+        "publishedAt": "2022-07-13T11:41:45.103Z",
         "firstPublishedAt": "2022-07-11T23:54:30.264Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "3xw9aiEPEgirBVoWytXeJC"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 4,
+        "version": 8,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -56,8 +56,11 @@
           "name": "Title",
           "type": "Symbol",
           "localized": false,
-          "required": false,
+          "required": true,
           "validations": [
+            {
+              "unique": true
+            }
           ],
           "disabled": false,
           "omitted": false
@@ -67,8 +70,17 @@
           "name": "Body",
           "type": "RichText",
           "localized": false,
-          "required": false,
+          "required": true,
           "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code"
+              ],
+              "message": "Only bold, italic, underline, and code marks are allowed"
+            },
             {
               "enabledNodeTypes": [
                 "heading-1",
@@ -88,15 +100,12 @@
                 "entry-hyperlink",
                 "asset-hyperlink",
                 "embedded-entry-inline"
-              ]
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
             },
             {
-              "enabledMarks": [
-                "bold",
-                "italic",
-                "underline",
-                "code"
-              ]
+              "nodes": {
+              }
             }
           ],
           "disabled": false,
@@ -107,8 +116,11 @@
           "name": "Slug",
           "type": "Symbol",
           "localized": false,
-          "required": false,
+          "required": true,
           "validations": [
+            {
+              "unique": true
+            }
           ],
           "disabled": false,
           "omitted": false
@@ -130,7 +142,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 8,
         "createdAt": "2022-07-11T23:54:30.328Z",
         "createdBy": {
           "sys": {
@@ -139,7 +151,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-07-11T23:59:38.551Z",
+        "updatedAt": "2022-07-13T11:41:45.688Z",
         "updatedBy": {
           "sys": {
             "id": "3xw9aiEPEgirBVoWytXeJC",

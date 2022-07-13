@@ -5,6 +5,7 @@
 1. Next.js
 1. TailwindCSS
 1. Playwright
+1. Contentful
 
 ## Getting Started
 
@@ -15,6 +16,22 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contentful 
+
+### Export
+
+```bash
+contentful login 
+contentful export --space-id <space_id> --content-file contentful_export/<date> 
+```
+
+### Gen Types
+
+```bash
+yarn add --global cf-content-types-generator
+
+yarn ts_gen
+```
 
 ## Tests
 

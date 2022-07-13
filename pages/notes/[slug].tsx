@@ -1,33 +1,44 @@
 import type {
-  NextPage,
   GetStaticProps,
+  GetStaticPropsContext,
   GetStaticPaths,
   InferGetStaticPropsType,
 } from "next";
 import { getNote, getNoteSlugs } from "lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { TypeNote } from "types";
+import { Document } from "@contentful/rich-text-types";
+import { NotFoundError } from "components";
+import { ParsedUrlQuery } from "querystring";
 
 type StaticPaths = {
   slug: string;
 };
 
-export const getStaticPaths: GetStaticPaths<StaticPaths> = async (context) => {
+export const getStaticPaths: GetStaticPaths<StaticPaths> = async () => {
   const notes = await getNoteSlugs({ limit: 10 });
+
   return {
     paths: notes.map((note) => ({
-      params: { slug: note.fields.slug },
+      params: { slug: note.fields.slug! },
     })),
     fallback: true,
   };
 };
 
 type StaticProps = {
-  data: TypeNote;
+  data: TypeNote | null;
 };
 
-export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
-  const { slug } = context.params;
+interface StaticPropsParams extends ParsedUrlQuery {
+  slug: string;
+}
+
+export const getStaticProps: GetStaticProps<
+  StaticProps,
+  StaticPropsParams
+> = async (context) => {
+  const slug = context.params!.slug;
 
   const data = await getNote(slug);
 
@@ -38,9 +49,11 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   };
 };
 
-const Note: NextPage = ({
-  data,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+function Note({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+  if (!data) {
+    return <NotFoundError />;
+  }
+
   const {
     fields: { title, body },
   } = data;
@@ -53,12 +66,12 @@ const Note: NextPage = ({
             <h1 className="text-3xl font-bold font-sans">{title}</h1>
           </div>
           <div className="text-lg font-serif">
-            {documentToReactComponents(body)}
+            {documentToReactComponents(body as Document)}
           </div>
         </div>
       </main>
     </div>
   );
-};
+}
 
 export default Note;
