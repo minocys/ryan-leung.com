@@ -21,22 +21,17 @@ const Notes: NextPage = ({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div>
-      <main>
-        <div className="max-w-screen-lg grid grid-rows-1 gap-4 m-auto">
-          {data.map((note: TypeNote) => (
-            <div
-              key={note.sys.id}
-              className="border-b-2 mb-4 p-4 cursor-pointer"
-            >
-              <Link href={`/notes/${note.fields.slug}`}>
-                <h2 className="text-2xl font-serif">{note.fields.title}</h2>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+    <main className="pt-40">
+      <div className="max-w-screen-lg grid grid-rows-1 gap-4 m-auto">
+        {data.map((note: TypeNote) => (
+          <div key={note.sys.id} className="border-b-2 mb-4 p-4 cursor-pointer">
+            <Link href={`/notes/${note.fields.slug}`}>
+              <h2 className="text-2xl font-serif">{note.fields.title}</h2>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </main>
   );
 };
 

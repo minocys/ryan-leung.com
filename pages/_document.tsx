@@ -18,14 +18,13 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-
       <body>
-        <div className="w-full flex flex-row justify-end max-h-13">
+        <div className="flex flex-row justify-end max-h-13 w-full pr-4 pt-4 absolute z-50">
           <Notes />
         </div>
         <Main />
         <NextScript />
-        <footer className="flex flex-row justify-center fixed inset-x-0 bottom-0 mb-10">
+        <footer className="flex flex-row justify-center fixed inset-x-0 bottom-0 mb-10 w-full">
           <div className="mx-2">
             <LinkedIn />
           </div>
