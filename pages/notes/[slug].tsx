@@ -59,18 +59,16 @@ function Note({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
   } = data;
 
   return (
-    <div className="max-w-screen-lg flex justify-center align-center m-auto">
-      <main>
-        <div className="grow">
-          <div className="py-10">
-            <h1 className="text-3xl font-bold font-sans">{title}</h1>
-          </div>
-          <div className="text-lg font-serif">
-            {documentToReactComponents(body as Document)}
-          </div>
+    <main className="max-w-screen-lg flex justify-center align-center m-auto pt-40">
+      <div className="grow">
+        <div className="py-10">
+          <h1 className="text-3xl font-bold font-sans">{title}</h1>
         </div>
-      </main>
-    </div>
+        <div className="text-lg font-serif">
+          {documentToReactComponents(body as Document)}
+        </div>
+      </div>
+    </main>
   );
 }
 
